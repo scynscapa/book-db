@@ -85,3 +85,18 @@ def search_by_isbn(book_list, search):
         if search in book.isbn:
             return_list.append(book)
     return return_list
+
+def sort_books(book_list, sort_by):
+    match sort_by:
+        case "author":
+            sorted_books = sorted(book_list, key = lambda book: book.author)
+            return sorted_books            
+        case "title":
+            sorted_books = sorted(book_list, key = lambda book: book.title)
+            return sorted_books
+        case "genre":
+            sorted_books = sorted(book_list, key = lambda book: book.genre.value)
+            return sorted_books
+        case "isbn":
+            sorted_books = sorted(book_list, key = lambda book: book.isbn)
+            return sorted_books

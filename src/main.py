@@ -1,4 +1,4 @@
-from manage_books import new_list, add_book_to_list, print_books, parse_genre, search_by_author, search_by_genre, search_by_isbn, search_by_title, search_by_upc
+from manage_books import new_list, add_book_to_list, print_books, parse_genre, search_by_author, search_by_genre, search_by_isbn, search_by_title, search_by_upc, sort_books
 from book import Book, Genre
 from file_operations import write_file, read_file
 
@@ -8,7 +8,7 @@ def main():
     # main loop
     book_list = new_list()
     while True:
-        user_input = input("\nAction? (list, save, load, add, search, quit)\n").lower()
+        user_input = input("\nAction? (list, save, load, add, sort, search, quit)\n").lower()
 
         match user_input:
             case "quit":
@@ -19,10 +19,8 @@ def main():
                 print_books(book_list)
             case "load":
                 book_list = read_file(filename)
-                print(f"{len(book_list)} book(s) loaded")
             case "save":
                 write_file(book_list, filename)
-                print(f"Wrote {len(book_list)} book(s) to file {filename}")
             case "add":
                 title = input("Title: ")
                 author = input("Author: ")
@@ -54,7 +52,9 @@ def main():
                     case _:
                         print("Invalid search type")
                         continue
-                
+            case "sort":
+                sort_by = input("Sort by which field? ").lower()
+                book_list = sort_books(book_list, sort_by)
 
 if __name__ == "__main__":
     main()

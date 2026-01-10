@@ -9,6 +9,7 @@ def write_file(book_list, filename):
             for book in book_list:
                 f.write(book.to_string())
                 f.write("\n")
+            print(f"Wrote {len(book_list)} book(s) to file {filename}")
     except Exception as e:
         print(f"An error occurred: {e}")
 
@@ -22,6 +23,7 @@ def read_file(filename):
         print(f"An error occured: {e}")
     
     book_list = parse_file(content)
+    print(f"{len(book_list)} book(s) loaded")
     return book_list
 
 def parse_file(content):
