@@ -15,6 +15,7 @@ def print_books(book_list):
 
     for book in book_list:
         print(book)
+        print("----------------------")
 
 def parse_genre(genre_text):
     match genre_text:
@@ -89,7 +90,7 @@ def search_by_isbn(book_list, search):
 def sort_books(book_list, sort_by):
     match sort_by:
         case "author":
-            sorted_books = sorted(book_list, key = lambda book: book.author)
+            sorted_books = sorted(book_list, key = lambda book: book.author.split()[-1])
             return sorted_books            
         case "title":
             sorted_books = sorted(book_list, key = lambda book: book.title)

@@ -24,9 +24,9 @@ class Book():
     # for writing to file
     def to_string(self):
         return f'{self.title},{self.author},{self.genre},{self.upc},{self.isbn}'
-
+    
     def __repr__(self):
-        return f'{self.title}, {self.author}, {self.genre.value}'
+        return f'Title: {self.title}\nAuthor: {self.author}\nGenre: {self.genre.value}\nISBN: {self.isbn}'
     
     def __eq__(self, other):
         if not isinstance(other, Book):
