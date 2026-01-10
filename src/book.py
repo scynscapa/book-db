@@ -23,7 +23,7 @@ class Book():
 
     # for writing to file
     def to_string(self):
-        return f'{self.title}, {self.author}, {self.genre}, {self.upc}, {self.isbn}'
+        return f'{self.title},{self.author},{self.genre},{self.upc},{self.isbn}'
 
     def __repr__(self):
         return f'{self.title}, {self.author}, {self.genre.value}'

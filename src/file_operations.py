@@ -1,6 +1,6 @@
 import sys
 from book import Book, Genre
-from manage_books import new_list
+from manage_books import new_list, parse_genre
 
 
 def write_file(book_list, filename):
@@ -32,27 +32,7 @@ def parse_file(content):
             continue
         title, author, genre_text, upc, isbn = line.split(",")
 
-        match genre_text.lstrip():
-            case "Genre.SCIFI":
-                genre = Genre.SCIFI
-            case "Genre.FANTASY":
-                genre = Genre.FANTASY
-            case "Genre.THRILLER":
-                genre = Genre.THRILLER
-            case "Genre.MYSTERY":
-                genre = Genre.MYSTERY
-            case "Genre.HORROR":
-                genre = Genre.HORROR
-            case "Genre.ROMANCE":
-                genre = Genre.ROMANCE
-            case "Genre.YOUNGADULT":
-                genre = Genre.YOUNGADULT
-            case "Genre.NONFICTION":
-                genre = Genre.NONFICTION
-            case "Genre.COMPUTERS":
-                genre = Genre.COMPUTERS
-            case _:
-                genre = Genre.DEFAULT
+        genre = parse_genre(genre_text)
         
         book = Book(title, author, genre, upc, isbn)
         book_list.append(book)
