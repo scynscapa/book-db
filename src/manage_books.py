@@ -7,5 +7,7 @@ def new_list():
 def add_book(book_list, book):
     book_list.append(book)
 
+def print_books(book_list):
+    for book in book_list:
+        print(book)
 
-    
