@@ -10,7 +10,7 @@ def add_book_to_list(book_list, book):
 def print_books(book_list):
     # check for empty list
     if book_list == list() or not book_list:
-        print("Empty list")
+        print("No books found")
         return
 
     for book in book_list:
@@ -45,7 +45,8 @@ def list_genres():
     print("Valid Genres:")
     print("-------------")
     for genre in Genre:
-        print(genre.value)
+        if genre is not Genre.DEFAULT:
+            print(genre.value)
 
 def search_by_author(book_list, search):
     return_list = list()
@@ -101,3 +102,8 @@ def sort_books(book_list, sort_by):
         case "isbn":
             sorted_books = sorted(book_list, key = lambda book: book.isbn)
             return sorted_books
+        case "upc":
+            sorted_books = sorted(book_list, key = lambda book: book.upc)
+            return sorted_books
+        case _:
+            return book_list

@@ -1,4 +1,3 @@
-import sys
 from book import Book, Genre
 from manage_books import new_list, parse_genre
 
@@ -33,9 +32,7 @@ def parse_file(content):
         if line == "":
             continue
         title, author, genre_text, upc, isbn = line.split(",")
-
         genre = parse_genre(genre_text)
-        
         book = Book(title, author, genre, upc, isbn)
         book_list.append(book)
     

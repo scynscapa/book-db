@@ -1,12 +1,12 @@
 from manage_books import new_list, add_book_to_list, print_books, parse_genre, search_by_author, search_by_genre, search_by_isbn, search_by_title, search_by_upc, sort_books
-from book import Book, Genre
+from book import Book
 from file_operations import write_file, read_file
 
 def main():
     filename = "booklist.csv"
+    book_list = new_list()
 
     # main loop
-    book_list = new_list()
     while True:
         user_input = input("\nAction? (list, save, load, add, sort, search, quit)\n").lower()
 
